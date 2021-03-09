@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
+             xmlns:SfButtons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:local="clr-namespace:TreeViewXamarin"
+             x:Class="TreeViewXamarin.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:CountriesViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <syncfusion:SfTreeView x:Name="treeView" 
+                               ItemTemplateContextType="Node" 
+                               ItemsSource="{Binding CountriesInfo}"
+                               CheckBoxMode="Recursive"
+                               CheckedItems="{Binding CheckedItems}"
+                               LoadOnDemandCommand="{Binding TreeViewOnDemandCommand}">
+            <syncfusion:SfTreeView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <SfButtons:SfCheckBox x:Name="CheckBox"
+                                              Text="{Binding Content.Name}"
+                                              IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                              VerticalOptions="CenterAndExpand"/>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfTreeView.ItemTemplate>
+        </syncfusion:SfTreeView>
+    </StackLayout>
+</ContentPage>
