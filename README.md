@@ -3,32 +3,11 @@ This repository showcases how to populate the Syncfusion Xamarin.Forms TreeView 
 
 ## Sample
 
-### XAML
-```xaml
-<syncfusion:SfTreeView x:Name="treeView" 
-                               ItemTemplateContextType="Node" 
-                               ItemsSource="{Binding CountriesInfo}"
-                               CheckBoxMode="Recursive"
-                               CheckedItems="{Binding CheckedItems}"
-                               LoadOnDemandCommand="{Binding TreeViewOnDemandCommand}">
-            <syncfusion:SfTreeView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="5">
-                        <SfButtons:SfCheckBox x:Name="CheckBox"
-                                              Text="{Binding Content.Name}"
-                                              IsChecked="{Binding IsChecked, Mode=TwoWay}"
-                                              VerticalOptions="CenterAndExpand"/>
-                    </Grid>
-                </DataTemplate>
-            </syncfusion:SfTreeView.ItemTemplate>
-        </syncfusion:SfTreeView>
-```
-
 ### Helper
 ```csharp
 internal class WebApiServices
     {
-        public static string webApiUrl = "https://ej2services.syncfusion.com/production/web-services/api/Orders"; // Your Web Api here
+        public static string webApiUrl = "Your URL"; // Your Web Api here
 
         System.Net.Http.HttpClient client;
 
